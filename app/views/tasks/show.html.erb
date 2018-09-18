@@ -1,7 +1,11 @@
 <h2>Your Tasks</h2>
 
+<% if @task.nil? %>
+  404 Not Found
+<%else%>
   <ul>
-    <li><%= "Task: #{@task[:id]}" %></li>
-    <li><%= "Description: #{@task[:description]}" %></li>
-    <li><%= "Date of Event: #{@task[:complete]}" %></li>
+    <li>Task:<%= @task.name %></li>
+    <li>Description: <%= @task.description %></li>
+    <li>Date of Event:<%= @task.due %></li>
   </ul>
+  <% end %>

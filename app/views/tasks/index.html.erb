@@ -1,7 +1,10 @@
 <ol>
 <% @tasks.each do |task| %>
-<% i = 0%>
-  <li>Task</li>
-  <p><%= "#{task[:id]}, #{task[:description]}, #{task[:complete]}"%></p>
+  <li><a href="/tasks/<%= task.id %>"><%= task.name %></a></li>
+  <ul class="edit">
+    <li>Make Complete<li>
+    <li>Edit<li>
+    <li>Delete<li>
+  </ul>
 <% end %>
 </ol>
