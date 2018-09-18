@@ -1,0 +1,7 @@
+<ol>
+<% @tasks.each do |task| %>
+<% i = 0%>
+  <li>Task</li>
+  <p><%= "#{task[:task]}, #{task[:description]}, #{task[:complete]}"%></p>
+<% end %>
+</ol>
