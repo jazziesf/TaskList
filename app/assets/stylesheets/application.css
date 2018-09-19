@@ -5,6 +5,15 @@ body {
   margin-right: 15px;
 }
 
+.edit {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-left: 0;
+
+}
+
 .sidebar {
   grid-area: sidebar;
 }
@@ -37,6 +46,23 @@ ul {
 a {
   text-decoration: none;
   color: black;
+}
+
+.all_task:hover {
+  background-color: grey;
+  border: grey;
+}
+
+.all_task:hover > a {
+  color: white;
+}
+
+.link:hover >  a {
+  color: #37FDFC;
+}
+
+.link:hover {
+  color: #37FDFC;
 }
 
 .content {

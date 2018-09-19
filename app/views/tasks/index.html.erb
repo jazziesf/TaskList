@@ -1,10 +1,10 @@
 <ol>
 <% @tasks.each do |task| %>
-  <li><a href="/tasks/<%= task.id %>"><%= task.name %></a></li>
+  <li class="link"><%= link_to "#{task.name}", task_path(task.id) %></li>
   <ul class="edit">
     <li>Make Complete<li>
     <li>Edit<li>
     <li>Delete<li>
-  </ul>
+  </ul><br>
 <% end %>
 </ol>
