@@ -2,9 +2,14 @@
 <% @tasks.each do |task| %>
   <li class="link"><%= link_to "#{task.name}", task_path(task.id) %></li>
   <ul class="edit">
-    <li>Make Complete<li>
+    <% if task[:due].class == String%>
+        <%= link_to "Unmark Complete", task_status_path(task.id), method: :patch %>
+    <% else task[:due].class == nil%>
+        <%= link_to "Mark Complete", task_status_path(task.id), method: :patch %>
+    <%end%>
+    </li>
     <li><%= link_to "Edit", edit_task_path(task.id) %></li>
-    <li><%= link_to "Delete", task_path(task.id), method: :delete %></li>
+    <li><%= link_to "Delete", task_path(task.id), method: :delete, data: {confirm: "Please confirm you would like to delete." } %></li>
   </ul><br>
 <% end %>
 </ol>

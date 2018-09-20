@@ -39,7 +39,7 @@ class TasksController < ApplicationController
     @task.description = params[:task][:description]
     @task.due = params[:task][:due]
     if @task.save
-      redirect_to root_path # go to the index so we can see the book in the list
+      redirect_to task_path # go to the index so we can see the book in the list
     else
       render :new
     end
@@ -57,9 +57,21 @@ class TasksController < ApplicationController
   def destroy
     id = params[:id].to_i
     @task = Task.find_by(id: id)
-    if @task.destroy
+    if task.destroy
       redirect_to root_path
     end
   end
 
+  def status
+    id = params[:id].to_i
+    @task = Task.find_by(id: id)
+    if @task.due.class == String
+      @task.due = nil
+    else @task.due == nil
+      @task.due = "Completed on #{Date.today}"
+    end
+    @task.save
+    redirect_to root_path
   end
+
+end
