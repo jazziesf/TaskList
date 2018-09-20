@@ -28,6 +28,10 @@ body {
   margin-top: 6px;
 }
 
+.complete {
+  text-decoration: line-through;
+}
+
 ul {
   list-style: none;
 }

@@ -1,15 +1,20 @@
 <ol>
-<% @tasks.each do |task| %>
+  <% @tasks.each do |task| %>
+  <% if task.due == nil %>
   <li class="link"><%= link_to "#{task.name}", task_path(task.id) %></li>
+  <%else %>
+  <li class="link"><%= link_to "#{task.name}", task_path(task.id), class: "complete" %></li>
+  <% end %>
+
   <ul class="edit">
     <% if task[:due].class == String%>
-        <%= link_to "Unmark Complete", task_status_path(task.id), method: :patch %>
+    <%= link_to "Unmark Complete", task_status_path(task.id), method: :patch %>
     <% else task[:due].class == nil%>
-        <%= link_to "Mark Complete", task_status_path(task.id), method: :patch %>
+    <%= link_to "Mark Complete", task_status_path(task.id), method: :patch %>
     <%end%>
-    </li>
-    <li><%= link_to "Edit", edit_task_path(task.id) %></li>
-    <li><%= link_to "Delete", task_path(task.id), method: :delete, data: {confirm: "Please confirm you would like to delete." } %></li>
-  </ul><br>
+  </li>
+  <li><%= link_to "Edit", edit_task_path(task.id) %></li>
+  <li><%= link_to "Delete", task_path(task.id), method: :delete, data: {confirm: "Please confirm you would like to delete." } %></li>
+</ul><br>
 <% end %>
 </ol>

@@ -15,7 +15,7 @@
       <div class="box header">TASKLIST</div>
       <div class="box sidebar">
         <ul>
-          <li><%= link_to "Add Task", new_task_path %></li>
+          <li class="all_task"><%= link_to "Add Task", new_task_path, class: "all_task" %></li>
           <li class="all_task"><%= link_to "All Task", tasks_path %></li>
         </ul>
       </div>
