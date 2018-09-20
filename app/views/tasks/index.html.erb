@@ -3,8 +3,8 @@
   <li class="link"><%= link_to "#{task.name}", task_path(task.id) %></li>
   <ul class="edit">
     <li>Make Complete<li>
-    <li>Edit<li>
-    <li>Delete<li>
+    <li><%= link_to "Edit", edit_task_path(task.id) %></li>
+    <li><%= link_to "Delete", task_path(task.id), method: :delete %></li>
   </ul><br>
 <% end %>
 </ol>

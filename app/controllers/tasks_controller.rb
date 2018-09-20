@@ -28,7 +28,21 @@ class TasksController < ApplicationController
 
 
   def edit
-    @book = Task.find(params[:id].to_i)
+    id = params[:id].to_i
+    @task = Task.find_by(id: id)
+  end
+
+  def update
+    id = params[:id].to_i
+    @task = Task.find_by(id: id)
+    @task.name = params[:task][:name]
+    @task.description = params[:task][:description]
+    @task.due = params[:task][:due]
+    if @task.save
+      redirect_to root_path # go to the index so we can see the book in the list
+    else
+      render :new
+    end
   end
 
   def create
@@ -40,4 +54,12 @@ class TasksController < ApplicationController
     end
   end
 
-end
+  def destroy
+    id = params[:id].to_i
+    @task = Task.find_by(id: id)
+    if @task.destroy
+      redirect_to root_path
+    end
+  end
+
+  end

@@ -88,10 +88,10 @@ a {
   align-items: center;
   justify-content: center;
   background-color: lightgrey;
-  position: absolute;
+  position: relative;
   height: 50px;
   bottom: 0;
-  width: 96%;
+  width: 98.5%;
 }
 
 .wrapper {
