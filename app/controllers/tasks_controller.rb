@@ -35,9 +35,10 @@ class TasksController < ApplicationController
   def update
     id = params[:id].to_i
     @task = Task.find_by(id: id)
-    @task.name = params[:task][:name]
-    @task.description = params[:task][:description]
-    @task.due = params[:task][:due]
+    @task.update(task_params)
+    # @task.name = params[:task][:name]
+    # @task.description = params[:task][:description]
+    # @task.due = params[:task][:due]
     if @task.save
       redirect_to task_path # go to the index so we can see the book in the list
     else
@@ -46,7 +47,8 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.new(name: params[:task][:name], description: params[:task][:description], due: params[:task][:due]) #instantiate a new book
+    @task = Task.new(task_params)
+    # @task = Task.new(name: params[:task][:name], description: params[:task][:description], due: params[:task][:due]) #instantiate a new book
     if @task.save # save returns true if the database insert succeeds
       redirect_to root_path # go to the index so we can see the book in the list
     else # save failed :(
@@ -57,7 +59,7 @@ class TasksController < ApplicationController
   def destroy
     id = params[:id].to_i
     @task = Task.find_by(id: id)
-    if task.destroy
+    if @task.destroy
       redirect_to root_path
     end
   end
@@ -73,5 +75,11 @@ class TasksController < ApplicationController
     @task.save
     redirect_to root_path
   end
+
+  private
+
+    def task_params
+      return params.require(:task).permit(:name,:description,:due)
+    end
 
 end

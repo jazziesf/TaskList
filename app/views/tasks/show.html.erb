@@ -6,7 +6,7 @@
   <ul>
     <li><strong>Task:</strong> <%= @task.name %></li>
     <li><strong>Description:</strong> <%= @task.description %></li>
-    <li><strong>Completion Date:</strong> <%= @task.due %></li>
+    <li><strong>Completion Date:</strong><%= @task.due %></li>
 
 
     <sub><%= link_to "Edit", edit_task_path(@task.id) %></sub>

@@ -1,6 +1,6 @@
 <ol>
   <% @tasks.each do |task| %>
-  <% if task.due == nil %>
+  <% if task.due == nil || task.due == "" %>
   <li class="link"><%= link_to "#{task.name}", task_path(task.id) %></li>
   <%else %>
   <li class="link"><%= link_to "#{task.name}", task_path(task.id), class: "complete" %></li>

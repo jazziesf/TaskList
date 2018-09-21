@@ -11,7 +11,23 @@ body {
   justify-content: space-between;
   align-items: flex-start;
   padding-left: 0;
+  padding-right: 30px;
+}
 
+.edit > a:hover {
+  color: white;
+}
+
+.edit > li > a:hover {
+  color: white;
+}
+
+sub > a {
+  padding-right: 25px;
+}
+
+sub > a:hover {
+  color: white;
 }
 
 .sidebar {
